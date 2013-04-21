@@ -46,6 +46,7 @@
 @synthesize leftViewController=_left;
 @synthesize rightViewController=_right;
 @synthesize rootViewController=_root;
+@synthesize setNavigationButtons;
 
 @synthesize tap=_tap;
 @synthesize pan=_pan;
@@ -381,8 +382,10 @@
 
 #pragma Internal Nav Handling 
 
-- (void)resetNavButtons {
+- (void)resetNavButtons
+{
     if (!_root) return;
+    if (!self.setNavigationButtons) return;
     
     UIViewController *topController = nil;
     if ([_root isKindOfClass:[UINavigationController class]]) {
