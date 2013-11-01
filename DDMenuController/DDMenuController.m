@@ -441,9 +441,13 @@
 
 - (void)showRootController:(BOOL)animated {
     
+    if (_menuFlags.respondsToWillShowViewController) {
+        [self.delegate menuController:self willShowViewController:self.rootViewController];
+    }
+    
     [_tap setEnabled:NO];
     _root.view.userInteractionEnabled = YES;
-
+    
     CGRect frame = _root.view.frame;
     frame.origin.x = 0.0f;
 
