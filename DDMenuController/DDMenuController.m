@@ -502,7 +502,6 @@
 	frame.size.width = kMenuDisplayedWidth;
     view.frame = frame;
     [self.view insertSubview:view atIndex:0];
-    [self.leftViewController viewWillAppear:animated];
     
     frame = _root.view.frame;
     frame.origin.x = CGRectGetMaxX(view.frame);
