@@ -142,6 +142,21 @@
         
         [self showShadow:(_root.view.layer.shadowOpacity!=0.0f)];
         
+        if (_menuFlags.showingRightView)
+        {
+            UIView *view = self.rightViewController.view;
+            CGRect frame = self.view.bounds;
+            frame.origin.x += frame.size.width - kMenuDisplayedWidth;
+            frame.size.width = kMenuDisplayedWidth;
+            view.frame = frame;
+        }
+        else if (_menuFlags.showingLeftView)
+        {
+            UIView *view = self.leftViewController.view;
+            CGRect frame = self.view.bounds;
+            frame.size.width = kMenuDisplayedWidth;
+            view.frame = frame;
+        }
     }
     
 }
